@@ -1,0 +1,47 @@
+/* src/components/TopNavbar.css */
+/* src/components/TopNavbar.css */
+.top-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Ensure the "Get Started" button is centered vertically */
+    padding: 1rem 2rem;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar-content {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin-right: auto; /* Push the links to the left */
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .get-started-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 2rem; /* Add some space between links and button */
+  }
+  
+  .get-started-btn:hover {
+    background-color: #0056b3;
+  }
+  

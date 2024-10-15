@@ -1,0 +1,80 @@
+/* src/pages/Home.css */
+/* src/pages/Home.css */
+.home-page {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  margin-left: 220px; /* Make sure the content is not overlapping the sidebar */
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  flex: 1; /* Take up the remaining space */
+  padding: 2rem;
+  margin-left: 220px; /* Ensure enough space to push the content to the right */
+  box-sizing: border-box;
+}
+
+
+.sidebar {
+  width: 220px;
+  background-color: #f8f9fa;
+  height: 100vh;
+  position: fixed; /* Fix the sidebar on the left */
+  top: 0;
+  left: 0;
+  padding: 1rem;
+}
+
+
+
+.welcome-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.welcome-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.welcome-section p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.welcome-image {
+  max-width: 100%; /* Ensure the image fits within its container */
+  height: auto;
+  margin-top: 1rem; /* Add some space between the text and the image */
+  border-radius: 10px; /* Optional: Rounded corners */
+}
+
+.introduction-section {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.introduction-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.technique-cards {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem; /* Space between cards */
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 1rem;
+  width: 45%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
