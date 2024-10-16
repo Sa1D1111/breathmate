@@ -5,6 +5,8 @@ import TopNavbar from './components/TopNavbar';
 import Sidebar from './components/Sidebar';
 import Home from './pages/Home';
 import Techniques from './pages/Techniques';
+import CustomBreathing from './pages/CustomBreathing'; // Import the new page
+
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/techniques" element={<Techniques />} />
+              <Route path="/custom-breathing" element={<CustomBreathing />} /> {/* New route */}
             </Routes>
           </div>
         </div>
