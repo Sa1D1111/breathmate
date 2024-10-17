@@ -1,80 +1,79 @@
 /* src/pages/Home.css */
-/* src/pages/Home.css */
-.home-page {
-  display: flex;
-  flex-direction: column;
-  padding: 2rem;
-  margin-left: 220px; /* Make sure the content is not overlapping the sidebar */
+.home-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-.content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Center content vertically */
-  align-items: center; /* Center content horizontally */
-  flex: 1; /* Take up the remaining space */
-  padding: 2rem;
-  margin-left: 220px; /* Ensure enough space to push the content to the right */
-  box-sizing: border-box;
+.intro-section,
+.about-breathwork,
+.benefits-breathwork,
+.beginner-techniques,
+.advanced-techniques {
+  margin-bottom: 40px;
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  display: block;
+}
+
+/* Target only the list items inside the sections of Home */
+.home-container ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.home-container li {
+  margin-bottom: 10px;
+}
+
+/* Ensure sidebar buttons are not affected */
+.sidebar ul {
+  list-style-type: none; /* Remove bullet points */
 }
 
 
-.sidebar {
-  width: 220px;
-  background-color: #f8f9fa;
-  height: 100vh;
-  position: fixed; /* Fix the sidebar on the left */
-  top: 0;
-  left: 0;
-  padding: 1rem;
+
+.technique-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
 }
 
-
-
-.welcome-section {
-  text-align: center;
-  margin-bottom: 2rem;
+.technique-item {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.welcome-section h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+@media (min-width: 768px) {
+  .technique-grid {
+    grid-template-columns: 1fr 1fr; /* Two columns on wider screens */
+  }
 }
 
-.welcome-section p {
-  font-size: 1.2rem;
-  color: #555;
-  margin-bottom: 2rem;
+@media (min-width: 1024px) {
+  .technique-grid {
+    grid-template-columns: 1fr 1fr 1fr; /* Three columns on larger screens */
+  }
 }
 
-.welcome-image {
-  max-width: 100%; /* Ensure the image fits within its container */
-  height: auto;
-  margin-top: 1rem; /* Add some space between the text and the image */
-  border-radius: 10px; /* Optional: Rounded corners */
-}
+/* ADD MEDIA QUERY FOR SMALL SCREENS */
+@media (max-width: 600px) {
+  .technique-grid {
+    grid-template-columns: 1fr; /* Single column for mobile view */
+  }
 
-.introduction-section {
-  text-align: center;
-  margin-top: 2rem;
-}
+  .home-container {
+    padding: 10px;
+  }
 
-.introduction-section h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-}
-
-.technique-cards {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem; /* Space between cards */
-}
-
-.card {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 1rem;
-  width: 45%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  .hero-image {
+    max-width: 100%; /* Ensure image scales properly */
+  }
 }

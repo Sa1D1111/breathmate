@@ -9,8 +9,7 @@ const TopNavbar = () => {
       <div className="navbar-content">
         <span className="logo">BreathMate</span>
         <ul className="nav-links">
-          <li><a href="/about">About BreathMate</a></li>
-          <li><a href="/contact">Contact Us</a></li>
+          
         </ul>
         {/* Use the Link component to navigate to Breathing Techniques */}
         <Link to="/techniques">

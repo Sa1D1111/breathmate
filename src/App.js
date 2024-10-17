@@ -11,6 +11,9 @@ import CustomBreathing from './pages/CustomBreathing'; // Import the new page
 function App() {
   return (
     <Router>
+
+
+      
       <div>
         <TopNavbar />
         <div className="main-container">

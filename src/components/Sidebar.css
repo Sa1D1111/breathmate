@@ -1,38 +1,55 @@
-/* src/components/Sidebar.css */
-/* src/components/Sidebar.css */
 .sidebar {
-    width: 220px;
-    background-color: #f8f9fa;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    z-index: 1000; /* Ensure it stays above other content */
+  width: 220px;
+  background-color: #f8f9fa;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  z-index: 1000;
+  transition: all 0.3s ease; /* Smooth transition for toggle */
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 1rem 0;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar ul li a svg {
+  margin-right: 10px;
+}
+
+.main-content {
+  margin-left: 220px; /* Default space for sidebar */
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.full-width {
+  margin-left: 0; /* Collapse sidebar */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%; /* Sidebar takes up full width */
   }
-  
-  
-  .sidebar ul {
-    list-style: none;
-    padding: 0;
+
+  .main-content {
+    margin-left: 0; /* Main content moves below on smaller screens */
   }
-  
-  .sidebar ul li {
-    padding: 1rem 0;
-    text-align: left;
-  }
-  
-  .sidebar ul li a {
-    text-decoration: none;
-    color: #333;
-    display: flex;
-    align-items: center; /* Align icons and text vertically */
-  }
-  
-  .sidebar ul li a svg {
-    margin-right: 10px; /* Add space between the icon and text */
-  }
-  
+}
