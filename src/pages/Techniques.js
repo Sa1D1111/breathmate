@@ -38,11 +38,12 @@ const Techniques = () => {
         <h2><FontAwesomeIcon icon={faCog} className="section-icon" /> Customized Breathing</h2>
         <p>Create your own breathing pattern by setting the inhale, hold, and exhale times. Customize your practice to fit your needs.</p>
 
-        {/* Link to the new custom breathing page */}
         <Link to="/custom-breathing">
           <button className="customize-button">Customize Your Breathing</button>
         </Link>
       </div>
+
+      
     </div>
   );
 };

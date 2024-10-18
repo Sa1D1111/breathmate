@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center; /* Ensure the "Get Started" button is centered vertically */
   padding: 1rem 2rem;
-  background-color: #fff;
+  background: linear-gradient(135deg, #FFDEE9, #B5FFFC); /* Gradient similar to your example */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 

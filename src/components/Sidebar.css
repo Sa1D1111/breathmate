@@ -1,6 +1,6 @@
 .sidebar {
   width: 220px;
-  background-color: #f8f9fa;
+  background: linear-gradient(135deg, #FFDEE9, #B5FFFC); /* Gradient similar to your example */
   height: 100vh;
   position: fixed;
   top: 0;

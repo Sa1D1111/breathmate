@@ -1,16 +1,24 @@
 /* src/pages/Home.css */
+body {
+  background: linear-gradient(135deg, #FFDEE9, #B5FFFC); /* Gradient similar to your example */
+  color: #333; /* Text color for contrast */
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
 .home-container {
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
+  background: rgba(255, 255, 255, 0.5); /* Semi-transparent to blend with the background */
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for the container */
 }
 
-.intro-section,
-.about-breathwork,
-.benefits-breathwork,
-.beginner-techniques,
-.advanced-techniques {
+.intro-section {
+  text-align: center;
   margin-bottom: 40px;
 }
 
@@ -19,25 +27,44 @@
   max-width: 600px;
   margin: 20px auto;
   display: block;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Add shadow around the image */
 }
 
-/* Target only the list items inside the sections of Home */
-.home-container ul {
+/* Bubble text styling */
+.bubble-text {
+  background: linear-gradient(135deg, #FF6FD8, #3813C2); /* Bold, vivid gradient */
+  color: white;
+  padding: 20px;
+  border-radius: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  text-align: center;
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+/* Section-specific styling */
+h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.benefits-breathwork ul,
+.beginner-techniques ol {
   list-style-type: disc;
   padding-left: 20px;
+  color: #333;
 }
 
-.home-container li {
-  margin-bottom: 10px;
-}
-
-/* Ensure sidebar buttons are not affected */
-.sidebar ul {
-  list-style-type: none; /* Remove bullet points */
-}
-
-
-
+/* Grid for techniques */
 .technique-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -45,7 +72,7 @@
 }
 
 .technique-item {
-  background-color: #f9f9f9;
+  background-color: white;
   padding: 15px;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -53,20 +80,19 @@
 
 @media (min-width: 768px) {
   .technique-grid {
-    grid-template-columns: 1fr 1fr; /* Two columns on wider screens */
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (min-width: 1024px) {
   .technique-grid {
-    grid-template-columns: 1fr 1fr 1fr; /* Three columns on larger screens */
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
-/* ADD MEDIA QUERY FOR SMALL SCREENS */
 @media (max-width: 600px) {
   .technique-grid {
-    grid-template-columns: 1fr; /* Single column for mobile view */
+    grid-template-columns: 1fr;
   }
 
   .home-container {
@@ -74,6 +100,6 @@
   }
 
   .hero-image {
-    max-width: 100%; /* Ensure image scales properly */
+    max-width: 100%;
   }
 }
