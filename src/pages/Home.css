@@ -37,7 +37,7 @@ body {
 
 /* Bubble text styles */
 .bubble-text {
-  background: linear-gradient(135deg, #ff6fd9b9, #3913c2be);
+  background: linear-gradient(135deg, lightsteelblue, rgb(66, 144, 246));
   color: white;
   padding: 20px;
   border-radius: 15px;

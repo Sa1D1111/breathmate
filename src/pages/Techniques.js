@@ -22,6 +22,15 @@ const Techniques = () => {
         </li>
 
 
+        <li>
+  <Link to="/box-breathing" className="technique-link">
+    <FontAwesomeIcon icon={faSquare} className="technique-icon" />
+    <div className="technique-content">
+      <h3>Box Breathing</h3>
+      <p>4-4-4-4 breathing for focus.</p>
+    </div>
+  </Link>
+</li>
 
         <li>
           <FontAwesomeIcon icon={faLeaf} className="technique-icon" />
@@ -30,13 +39,7 @@ const Techniques = () => {
             <p>Deep belly breathing to relax.</p>
           </div>
         </li>
-        <li>
-          <FontAwesomeIcon icon={faSquare} className="technique-icon" />
-          <div className="technique-content">
-            <h3>Box Breathing</h3>
-            <p>4-4-4-4 breathing for focus.</p>
-          </div>
-        </li>
+        
         <li>
           <FontAwesomeIcon icon={faCircle} className="technique-icon" />
           <div className="technique-content">
