@@ -31,7 +31,7 @@ const WaterBreath = () => {
 
   const stopBreathing = () => {
     setCurrentState('done');
-    setDescription("There's nothing you can't do with a For-loop and a few If-statements.");
+    setDescription("Practice");
   };
 
   const restartBreathing = () => {
@@ -111,7 +111,7 @@ const WaterBreath = () => {
         {currentState === 'done' && (
           <div className="states__state states__state--done states__state--active">
             <div className="states__content">
-              <h1 className="title">Be At Peace With JavaScript</h1>
+              <h1 className="title">Water Breathing</h1>
               <p className="description">{description}</p>
               <div className="buttons">
                 <button className="button button--restart" onClick={restartBreathing}>

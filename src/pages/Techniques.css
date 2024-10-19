@@ -1,92 +1,98 @@
-/* src/pages/Techniques.css */
 .techniques-page {
-    margin-left: 220px; /* Adjust for the sidebar */
-    padding: 2rem;
-  }
-  
-  .technique-list {
-    list-style: none;
-    padding: 0;
-    margin-top: 1.5rem;
-  }
-  
-  .technique-list li {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1.5rem;
-  }
-  
-  .technique-icon {
-    font-size: 1.5rem;
-    margin-right: 1rem;
-    color: #007bff;
-  }
-  
-  .technique-content h3 {
-    margin: 0;
-    font-weight: bold;
-  }
-  
-  .technique-content p {
-    margin: 0.2rem 0 0 0;
-    color: #555;
-  }
-  
-  /* Customized Breathing Section */
-  .customized-section {
-    margin-top: 3rem;
-    padding: 1rem;
-    background-color: #f1f1f1;
-    border-radius: 10px;
-    text-align: center;
-  }
-  
-  .customized-section h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-  }
-  
-  .section-icon {
-    margin-right: 10px;
-    color: #007bff;
-  }
-  
-  .customize-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 0.7rem 1.5rem;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 1rem;
-  }
-  
-  .customize-button:hover {
-    background-color: #0056b3;
-  }
-  
+  margin-left: 220px; /* Adjust for the sidebar */
+  padding: 2rem;
+}
 
+.technique-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1.5rem;
+}
 
-  .technique-item {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-  }
-  
-  .technique-link {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: #fff;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .technique-link:hover {
-    background-color: #0056b3;
-  }
-  
+.technique-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.technique-icon {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  color: #007bff;
+}
+
+.technique-content h3 {
+  margin: 0;
+  font-weight: bold;
+}
+
+.technique-content p {
+  margin: 0.2rem 0 0 0;
+  color: #555;
+}
+
+/* Customized Breathing Section */
+.customized-section {
+  margin-top: 2rem; /* Reduced margin */
+  padding: 0.8rem;  /* Smaller padding */
+  background-color: #f9f9f9; /* Lighter background for consistency */
+  border-radius: 8px; /* Adjusted border-radius */
+  display: flex;
+  align-items: center; /* Align content vertically */
+  justify-content: space-between; /* Space between title and button */
+}
+
+.customized-section h2 {
+  font-size: 1.5rem; /* Slightly smaller font size */
+  margin: 0;
+}
+
+.customized-section p {
+  font-size: 0.9rem; /* Smaller text for description */
+  margin: 0;
+}
+
+.section-icon {
+  margin-right: 8px;
+  color: #007bff;
+}
+
+/* Adjust the customized button to be smaller and more in line with other buttons */
+.customize-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.4rem 1rem; /* Smaller padding for a more compact button */
+  border-radius: 4px; /* Smaller radius */
+  cursor: pointer;
+  font-size: 0.85rem; /* Smaller font size */
+  margin-left: 1rem; /* Add margin to separate from text */
+}
+
+.customize-button:hover {
+  background-color: #0056b3;
+}
+
+/* Style for technique items */
+.technique-item {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.technique-link {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.technique-link:hover {
+  background-color: #0056b3;
+}
