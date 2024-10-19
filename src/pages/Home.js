@@ -12,7 +12,7 @@ import Sidebar from '../components/Sidebar';
 
          <p className="bubble-text">Discover the power of breathwork to enhance your physical and mental health. This page provides a comprehensive guide to breathwork techniques that reduce stress, improve sleep, and enhance your overall well-being.</p>
          
-         <img src={require('../images/image1.png')} alt="Breathwork" className="hero-image" />
+         <img src={require('../images/image3.png')} alt="Breathwork" className="hero-image" />
 
        </header>
  
@@ -49,7 +49,7 @@ import Sidebar from '../components/Sidebar';
  
        <section className="advanced-techniques">
          <h2>Advanced Breathing Techniques</h2>
-         <div className="technique-grid">
+         <div className="technique-grid2">
            <div className="technique-item">
              <h3>Holotropic Breathwork</h3>
              <p>A spiritual technique designed to access altered states of consciousness for personal growth.</p>
@@ -401,7 +401,7 @@ import Sidebar from '../components/Sidebar';
          <section className="Shamanic-section">
 
          <h3>2. Shamanic Breathing</h3>
-<p>Shamanic Breathwork is a spiritual technique that provides an intense method of healing. Based on the traditions of the Shamans, breathing is used to help practitioners enter a new state of consciousness while helping to calm the body and quiet the mind. Sometimes it is combined with music and movement. Those who are interested can attend workshops where they will be guided through the experience.</p>>         
+<p>Shamanic Breathwork is a spiritual technique that provides an intense method of healing. Based on the traditions of the Shamans, breathing is used to help practitioners enter a new state of consciousness while helping to calm the body and quiet the mind. Sometimes it is combined with music and movement. Those who are interested can attend workshops where they will be guided through the experience.</p>
 </section>
 
 

@@ -1,100 +1,67 @@
-.custom-breathing {
-  text-align: center;
-  padding: 2rem;
-  font-family: 'Arial', sans-serif;
-  background: linear-gradient(135deg, #FFDEE9, #B5FFFC); /* Gradient similar to your example */
-  height: 100vh;
-}
-
-.slider-container {
-  margin-bottom: 2rem;
+.container {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  justify-content: center;
+  margin: auto;
+  height: 300px;
+  width: 300px;
+  position: relative;
+  transform: scale(1);
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
 }
 
-input[type="range"] {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 80%;
-  height: 12px;
-  background: #e0e0e0;
-  border-radius: 12px;
-  outline: none;
-  opacity: 0.7;
-  transition: opacity 0.3s;
-}
-
-input[type="range"]:hover {
-  opacity: 1;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 30px;
-  height: 30px;
-  background: #007bff;
+.circle {
+  background-color: #010f1c;
+  height: 100%;
+  width: 100%;
   border-radius: 50%;
-  cursor: pointer;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  transition: background 0.3s, transform 0.2s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 
-input[type="range"]::-webkit-slider-thumb:hover {
-  background: #0056b3;
-  transform: scale(1.2);
-}
-
-.start-button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 1rem 2rem;
-  border-radius: 50px;
-  cursor: pointer;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
-  font-size: 1.2rem;
-  transition: background-color 0.3s, transform 0.2s;
-}
-
-.start-button:hover {
-  background-color: #0056b3;
-  transform: scale(1.05);
-}
-
-.timer-display {
-  font-size: 2rem;
-  margin-top: 2rem;
-  color: #333;
-  padding: 1rem;
-  border-radius: 50px;
-  background-color: #f0f8ff;
-  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
-}
-
-.breathing-circle {
-  width: 200px;
-  height: 200px;
-  background-color: #ff5e99;
+.gradient-circle {
+  background: conic-gradient(
+    #55b7a4 0%,
+    #4ca493 40%,
+    #fff 40%,
+    #fff 60%,
+    #336d62 60%,
+    #2a5b52 100%
+  );
+  height: 320px;
+  width: 320px;
+  z-index: -2;
   border-radius: 50%;
-  margin: 20px auto;
-  animation: breathingAnimation 16s infinite ease-in-out;
+  position: absolute;
+  top: -10px;
+  left: -10px;
 }
 
-@keyframes breathingAnimation {
-  0%, 100% { transform: scale(1); }  /* Initial & end: Normal size */
-  25% { transform: scale(1.2); }  /* Inhale: Expand */
-  50% { transform: scale(1); }    /* Hold in: Back to normal */
-  75% { transform: scale(0.8); }  /* Exhale: Contract */
+.container.grow {
+  animation-name: grow;
 }
 
-.timer-display h2 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+@keyframes grow {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2);
+  }
 }
 
-.timer-display p {
-  font-size: 1.5rem;
+.container.shrink {
+  animation-name: shrink;
+}
+
+@keyframes shrink {
+  from {
+    transform: scale(1.2);
+  }
+  to {
+    transform: scale(1);
+  }
 }
