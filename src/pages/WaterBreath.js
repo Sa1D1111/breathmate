@@ -10,8 +10,8 @@ const WaterBreath = () => {
   const [currentCycle, setCurrentCycle] = useState(1);
   const [currentDirection, setCurrentDirection] = useState('in');
 
-  const targetInCount = 3;
-  const targetOutCount = 3;
+  const targetInCount = 5;
+  const targetOutCount = 4;
   const targetCycleCount = 10;
 
   useEffect(() => {
@@ -52,7 +52,7 @@ const WaterBreath = () => {
         setDescription(`Cycle: ${currentCycle} — In: ${currentCount}`);
       }
     } else {
-      if (currentCount <= 1) {
+      if (currentCount <= 0) {
         if (currentCycle >= targetCycleCount) {
           stopBreathing();
         } else {
@@ -74,7 +74,7 @@ const WaterBreath = () => {
         {currentState === 'ready' && (
           <div className="states__state states__state--ready states__state--active">
             <div className="states__content">
-              <h1 className="title">Deep Nostril Breathing Exercise</h1>
+              <h1 className="bubble-text">Deep Nostril Breathing Exercise</h1>
               <p className="description">{description}</p>
               <div className="buttons">
                 <button className="button button--start" onClick={startBreathing}>
@@ -88,7 +88,7 @@ const WaterBreath = () => {
         {currentState === 'running' && (
           <div className="states__state states__state--running states__state--active">
             <div className="states__content">
-              <h1 className="title">Deep Nostril Breathing Exercise</h1>
+              <h1 className="bubble-text">Deep Nostril Breathing Exercise</h1>
               <p className="description">{description}</p>
               <div className="meter">
                 <div
@@ -111,7 +111,7 @@ const WaterBreath = () => {
         {currentState === 'done' && (
           <div className="states__state states__state--done states__state--active">
             <div className="states__content">
-              <h1 className="title">Deep Nostril Breathing</h1>
+              <h1 className="bubble-text">Deep Nostril Breathing</h1>
               <p className="description">{description}</p>
               <div className="buttons">
                 <button className="button button--restart" onClick={restartBreathing}>

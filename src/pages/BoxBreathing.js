@@ -156,7 +156,7 @@ const BoxBreathing = () => {
 
   return (
     <div className="box-breathing-page">
-      <h1>Box Breathing</h1>
+      <h1 className='bubble-text'>Box Breathing</h1>
       <div className="breathing-container">
         <h2>{phase}</h2>
         <p>{timeLeft}s</p>
@@ -181,6 +181,9 @@ const BoxBreathing = () => {
         <button className="audio-button" onClick={handleMusicPlayPause}>
           {isPlaying ? 'Pause Music' : 'Play Music'}
         </button>
+
+
+        
       </div>
 
       {/* Audio Visualizer */}

@@ -65,3 +65,55 @@
     transform: scale(1);
   }
 }
+
+
+
+
+
+
+.bubble-text {
+  background: linear-gradient(135deg, lightsteelblue, rgb(66, 144, 246));
+  color: white;
+  padding: 20px;
+  border-radius: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 20px auto;
+  max-width: 600px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  
+  /* Animation only for bubble-text */
+  animation: flow 6s ease-in-out infinite, float 3s ease-in-out infinite;
+  transition: box-shadow 0.4s ease, transform 0.4s ease; /* Smooth transition for both shadow and movement */
+  
+}
+
+/* Hover effect for bubble text */
+.bubble-text:hover {
+  transform: translate(10px, -10px);
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.842); /* Larger shadow on hover */
+}
+
+/* Keyframes for floating/oscillating effect */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+}
+
+/* Optional flow effect for background */
+@keyframes flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

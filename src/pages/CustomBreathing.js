@@ -37,7 +37,7 @@ const CustomBreathing = () => {
   return (
     <div className="custom-breathing-page">
       <div className="breathing-app">
-        <h1>Relaxer</h1>
+        <h1 className='bubble-text'>Custom Breathing</h1>
         <div
           className={containerClass}
           id="container"
