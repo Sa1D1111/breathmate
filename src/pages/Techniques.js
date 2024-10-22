@@ -1,7 +1,7 @@
 // src/pages/Techniques.js
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLeaf, faSquare, faCircle, faCog, faPersonSwimming } from '@fortawesome/free-solid-svg-icons';
+import { faLeaf, faSquare, faCircle, faCog, faPersonSwimming, faCircleNotch } from '@fortawesome/free-solid-svg-icons';
 import './Techniques.css';
 import { Link } from 'react-router-dom'; // Import Link for navigation
 
@@ -13,10 +13,10 @@ const Techniques = () => {
         
         <li>
           <Link to="/water-breathing" className="technique-link">
-            <FontAwesomeIcon icon={faPersonSwimming} className="technique-icon" />
+            <FontAwesomeIcon icon={faCircleNotch} className="technique-icon" />
             <div className="technique-content">
-              <h3>Water Breathing</h3>
-              <p>Deep belly breathing to relax.</p>
+              <h3>Deep Breathing</h3>
+              <p>Deep nostril breathing to relax.</p>
             </div>
           </Link>
         </li>

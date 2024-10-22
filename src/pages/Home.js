@@ -1,9 +1,23 @@
  // src/pages/Home.js 
- import React from 'react';
+ import React, { useState, useEffect } from 'react';  // Import useState and useEffect
  import './Home.css';
 import Sidebar from '../components/Sidebar';
+
+import { fetchBreathworkTechniques } from '../controllers/breathworkController';  // Fix the import
+
+
  
  const Home = () => {
+
+  const [techniques, setTechniques] = useState([]);
+
+  useEffect(() => {
+    const techniquesData = fetchBreathworkTechniques();  // Use fetchBreathworkTechniques
+    setTechniques(techniquesData);  // Set the fetched data in state
+  }, []);
+
+
+
    return (
     <div>
      <div className="home-container">
@@ -15,6 +29,21 @@ import Sidebar from '../components/Sidebar';
          <img src={require('../images/image3.png')} alt="Breathwork" className="hero-image" />
 
        </header>
+
+
+       {/* Render the breathwork techniques fetched from the controller */}
+       <section className="beginner-techniques">
+          <h2>Breathwork Techniques for Beginners</h2>
+          <div className="technique-grid">
+            {techniques.map((technique, index) => (
+              <div className="technique-item" key={index}>
+                <h3>{technique.name}</h3>
+                <p>{technique.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+        
  
        <section className="about-breathwork">
          <h2>What is Breathwork?</h2>

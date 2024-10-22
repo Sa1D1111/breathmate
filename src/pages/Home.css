@@ -50,6 +50,7 @@ body {
   
   /* Animation only for bubble-text */
   animation: flow 6s ease-in-out infinite, float 3s ease-in-out infinite;
+  transition: box-shadow 0.4s ease, transform 0.4s ease; /* Smooth transition for both shadow and movement */
   
 }
 

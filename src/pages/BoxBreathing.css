@@ -1,44 +1,126 @@
 .box-breathing-page {
-    text-align: center;
-    padding: 2rem;
-    background: linear-gradient(135deg, #ffdee9, #b5fffc); /* Gradient similar to the example */
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .breathing-container {
-    background-color: #fff;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .breathing-container h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .breathing-container p {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-  }
-  
-  .breathing-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 1.2rem;
-    transition: background-color 0.3s, transform 0.2s;
-  }
-  
-  .breathing-button:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
-  }
-  
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #ffdee9, #b5fffc);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.breathing-container {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.breathing-container h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.breathing-container p {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.breathing-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.breathing-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Box Visual */
+.box-visual {
+  margin-top: 3rem;
+}
+
+.box {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border: 2px solid #007bff;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.pointer {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: #007bff;
+  border-radius: 50%;
+  transition: all 4s linear;
+}
+
+.position-0 {
+  top: 0;
+  left: 0;
+}
+
+.position-1 {
+  top: 0;
+  left: 100%;
+  transform: translateX(-100%);
+}
+
+.position-2 {
+  top: 100%;
+  left: 100%;
+  transform: translate(-100%, -100%);
+}
+
+.position-3 {
+  top: 100%;
+  left: 0;
+  transform: translateY(-100%);
+}
+
+/* Audio Controls */
+.audio-controls {
+  margin-top: 2rem;
+}
+
+.audio-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.audio-button:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+
+
+.audio-visualizer {
+  width: 100%;
+  height: 150px;
+  margin-top: 20px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}

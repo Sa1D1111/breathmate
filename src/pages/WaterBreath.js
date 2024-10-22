@@ -5,13 +5,13 @@ import './WaterBreath.css'; // CSS for the WaterBreath page
 const WaterBreath = () => {
   // Breathing exercise states
   const [currentState, setCurrentState] = useState('ready');
-  const [description, setDescription] = useState('Water breathing consists of a 4-second inhale followed by a 4-second exhale, repeated for 10 cycles.');
+  const [description, setDescription] = useState('Deep nostril breathing consists of a 4-second inhale followed by a 4-second exhale, repeated for 10 cycles.');
   const [currentCount, setCurrentCount] = useState(1);
   const [currentCycle, setCurrentCycle] = useState(1);
   const [currentDirection, setCurrentDirection] = useState('in');
 
-  const targetInCount = 4;
-  const targetOutCount = 4;
+  const targetInCount = 3;
+  const targetOutCount = 3;
   const targetCycleCount = 10;
 
   useEffect(() => {
@@ -74,7 +74,7 @@ const WaterBreath = () => {
         {currentState === 'ready' && (
           <div className="states__state states__state--ready states__state--active">
             <div className="states__content">
-              <h1 className="title">Water Breathing Exercise</h1>
+              <h1 className="title">Deep Nostril Breathing Exercise</h1>
               <p className="description">{description}</p>
               <div className="buttons">
                 <button className="button button--start" onClick={startBreathing}>
@@ -88,7 +88,7 @@ const WaterBreath = () => {
         {currentState === 'running' && (
           <div className="states__state states__state--running states__state--active">
             <div className="states__content">
-              <h1 className="title">Water Breathing Exercise</h1>
+              <h1 className="title">Deep Nostril Breathing Exercise</h1>
               <p className="description">{description}</p>
               <div className="meter">
                 <div
@@ -111,7 +111,7 @@ const WaterBreath = () => {
         {currentState === 'done' && (
           <div className="states__state states__state--done states__state--active">
             <div className="states__content">
-              <h1 className="title">Water Breathing</h1>
+              <h1 className="title">Deep Nostril Breathing</h1>
               <p className="description">{description}</p>
               <div className="buttons">
                 <button className="button button--restart" onClick={restartBreathing}>
