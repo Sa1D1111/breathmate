@@ -31,8 +31,19 @@ import { fetchBreathworkTechniques } from '../controllers/breathworkController';
        </header>
 
 
-       {/* Render the breathwork techniques fetched from the controller */}
-       <section className="beginner-techniques">
+       
+        
+ 
+       <section className="about-breathwork">
+         <h2>What is Breathwork?</h2>
+         <p>Breathwork consists of techniques that focus on mindful breathing to improve mental, physical, and spiritual health. It's proven to help with stress, anxiety, and overall well-being.
+         Breathwork refers to a variety of breathing techniques and exercises that can help with mental, physical, and spiritual health. It involves changing your breathing patterns for healing and self-care purposes. Using breathwork has been proven to help people reduce their stress and anxiety levels.
+         </p>
+       </section>
+ 
+       {/* MODEL VIEW CONTROLLER CODE */}
+ {/* Render the breathwork techniques fetched from the controller */}
+ <section className="beginner-techniques">
           <h2>Breathwork Techniques for Beginners</h2>
           <div className="technique-grid">
             {techniques.map((technique, index) => (
@@ -43,18 +54,9 @@ import { fetchBreathworkTechniques } from '../controllers/breathworkController';
             ))}
           </div>
         </section>
-        
- 
-       <section className="about-breathwork">
-         <h2>What is Breathwork?</h2>
-         <p>Breathwork consists of techniques that focus on mindful breathing to improve mental, physical, and spiritual health. It's proven to help with stress, anxiety, and overall well-being.
-         Breathwork refers to a variety of breathing techniques and exercises that can help with mental, physical, and spiritual health. It involves changing your breathing patterns for healing and self-care purposes. Using breathwork has been proven to help people reduce their stress and anxiety levels.
-         </p>
-       </section>
- 
-      
- 
-       <section className="beginner-techniques">
+
+
+       {/* <section className="beginner-techniques">
          <h2>Breathwork Techniques for Beginners</h2>
          <div className="technique-grid">
            <div className="technique-item">
@@ -74,7 +76,7 @@ import { fetchBreathworkTechniques } from '../controllers/breathworkController';
              <p>A calming technique for anxiety and insomnia, using a rhythmic breath pattern.</p>
            </div>
          </div>
-       </section>
+       </section> */}
  
        <section className="advanced-techniques">
          <h2>Advanced Breathing Techniques</h2>

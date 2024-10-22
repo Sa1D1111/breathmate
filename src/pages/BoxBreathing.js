@@ -5,12 +5,15 @@ const BoxBreathing = () => {
   const [phase, setPhase] = useState('Inhale');
   const [timeLeft, setTimeLeft] = useState(4);
   const [isRunning, setIsRunning] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false); // State to handle audio play/pause
+  const [isPlaying, setIsPlaying] = useState(false); // For music play/pause
+  const [audioInitialized, setAudioInitialized] = useState(false); // Track if audio is initialized
+
   const audioRef = useRef(null); // Ref for audio element
-  const canvasRef = useRef(null); // Ref for the canvas element for the visualizer
-  const audioContextRef = useRef(null); // Ref for Web Audio API context
-  const analyserRef = useRef(null); // Ref for audio analyser
-  const dataArrayRef = useRef(null); // Ref to store audio frequency data
+  const canvasRef = useRef(null); // Ref for canvas element
+  const audioContextRef = useRef(null); // Ref for the AudioContext
+  const analyserRef = useRef(null); // Ref for the AnalyserNode
+  const dataArrayRef = useRef(null); // Ref for the frequency data
+  const animationFrameRef = useRef(null); // Ref for animation frame
 
   const phases = [
     { name: 'Inhale', duration: 4 },
@@ -50,78 +53,105 @@ const BoxBreathing = () => {
     }
   };
 
-  const handleMusicPlayPause = () => {
-    if (audioRef.current) {
-      if (isPlaying) {
-        audioRef.current.pause();
-        if (audioContextRef.current) {
-          audioContextRef.current.suspend(); // Pause the audio context
-        }
-      } else {
-        audioRef.current.play();
-        if (audioContextRef.current) {
-          audioContextRef.current.resume(); // Resume the audio context
-        } else {
-          initializeAudioVisualizer(); // Initialize the audio visualizer on first play
-        }
-      }
-      setIsPlaying(!isPlaying);
+  // Initialize audio context and analyser
+  const initializeAudioVisualizer = () => {
+    if (!audioContextRef.current) {
+      const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      const analyser = audioContext.createAnalyser();
+      analyser.fftSize = 256; // Smaller size to speed up visualization
+
+      const source = audioContext.createMediaElementSource(audioRef.current);
+      source.connect(analyser);
+      analyser.connect(audioContext.destination);
+
+      const bufferLength = analyser.frequencyBinCount;
+      const dataArray = new Uint8Array(bufferLength);
+
+      audioContextRef.current = audioContext;
+      analyserRef.current = analyser;
+      dataArrayRef.current = dataArray;
+
+      console.log("Audio visualizer initialized");
+
+      // Start the visualizer drawing
+      drawVisualizer();
     }
   };
 
-  const initializeAudioVisualizer = () => {
-    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-    const analyser = audioContext.createAnalyser();
-    analyser.fftSize = 256;
-
-    const source = audioContext.createMediaElementSource(audioRef.current);
-    source.connect(analyser);
-    analyser.connect(audioContext.destination);
-
-    const bufferLength = analyser.frequencyBinCount;
-    const dataArray = new Uint8Array(bufferLength);
-
-    audioContextRef.current = audioContext;
-    analyserRef.current = analyser;
-    dataArrayRef.current = dataArray;
-
-    drawVisualizer();
-  };
-
+  // Visualizer drawing function
   const drawVisualizer = () => {
     const canvas = canvasRef.current;
     const canvasCtx = canvas.getContext('2d');
     const analyser = analyserRef.current;
     const dataArray = dataArrayRef.current;
 
+    if (!canvasCtx || !analyser || !dataArray) {
+      console.error("Canvas context or analyser is not set.");
+      return;
+    }
+
     const WIDTH = canvas.width;
     const HEIGHT = canvas.height;
 
-    const draw = () => {
-      if (!isPlaying) return; // Stop drawing if the music is paused
+    console.log("Visualizer: Drawing canvas.");
 
-      requestAnimationFrame(draw);
+    const draw = () => {
+      if (!audioRef.current || audioRef.current.paused) {
+        cancelAnimationFrame(animationFrameRef.current);
+        console.log("Visualizer: Audio is not playing, stopping draw.");
+        return; // Stop drawing if not playing
+      }
 
       analyser.getByteFrequencyData(dataArray);
+      console.log('Frequency Data:', dataArray); // Log frequency data for debugging
 
-      canvasCtx.fillStyle = 'rgba(0, 0, 0, 0.1)';
-      canvasCtx.fillRect(0, 0, WIDTH, HEIGHT);
+      canvasCtx.clearRect(0, 0, WIDTH, HEIGHT); // Clear the canvas
 
       const barWidth = (WIDTH / dataArray.length) * 2.5;
       let barHeight;
       let x = 0;
 
+      // Loop through the frequency data and draw bars
       for (let i = 0; i < dataArray.length; i++) {
         barHeight = dataArray[i];
-
-        canvasCtx.fillStyle = `rgb(${barHeight + 100},50,150)`;
-        canvasCtx.fillRect(x, HEIGHT - barHeight / 2, barWidth, barHeight / 2);
-
-        x += barWidth + 1;
+        canvasCtx.fillStyle = `rgb(${barHeight + 100},50,150)`; // Color based on bar height
+        canvasCtx.fillRect(x, HEIGHT - barHeight / 2, barWidth, barHeight / 2); // Draw the bar
+        x += barWidth + 1; // Move to next bar
       }
+
+      animationFrameRef.current = requestAnimationFrame(draw); // Loop the drawing function
     };
 
-    draw();
+    draw(); // Start drawing
+  };
+
+  const handleMusicPlayPause = async () => {
+    try {
+      if (audioRef.current) {
+        if (isPlaying) {
+          // Pause both audio and audio context
+          audioRef.current.pause();
+          if (audioContextRef.current) {
+            audioContextRef.current.suspend();
+          }
+          setIsPlaying(false);
+        } else {
+          // Play the audio and resume audio context
+          await audioRef.current.play();
+          if (!audioInitialized) {
+            // Initialize visualizer only on the first play
+            initializeAudioVisualizer();
+            setAudioInitialized(true);
+          } else if (audioContextRef.current.state === 'suspended') {
+            // Resume the AudioContext if it was suspended
+            await audioContextRef.current.resume();
+          }
+          setIsPlaying(true);
+        }
+      }
+    } catch (error) {
+      console.error("Error playing audio:", error);
+    }
   };
 
   return (
@@ -154,7 +184,7 @@ const BoxBreathing = () => {
       </div>
 
       {/* Audio Visualizer */}
-      <canvas ref={canvasRef} className="audio-visualizer"></canvas>
+      <canvas ref={canvasRef} className="audio-visualizer" width="600" height="150"></canvas>
     </div>
   );
 };
