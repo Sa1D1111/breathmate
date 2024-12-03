@@ -6,6 +6,7 @@ import Techniques from './pages/Techniques';
 import CustomBreathing from './pages/CustomBreathing';
 import WaterBreath from './pages/WaterBreath'; // Import the new page
 import BoxBreathing from './pages/BoxBreathing'; // Import Box Breathing
+import Breathing478 from './pages/Breathing478'; // Import Box Breathing
 
 
 function App() {
@@ -20,6 +21,8 @@ function App() {
             <Route path="/custom-breathing" element={<CustomBreathing />} />
             <Route path="/water-breathing" element={<WaterBreath />} /> {/* New route */}
             <Route path="/box-breathing" element={<BoxBreathing />} /> {/* New route */}
+            <Route path="/478-breathing" element={<Breathing478 />} /> {/* New route */}
+
 
           </Routes>
         </div>

@@ -1,0 +1,170 @@
+.box-breathing-page {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, #ffdee9, #b5fffc); /* Gradient */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .breathing-container {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 250px; /* Fixed width */
+    height: 300px; /* Fixed height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center content */
+    align-items: center; /* Horizontally center content */
+  }
+  
+  .breathing-container h2, .breathing-container p {
+    margin: 0;
+    text-align: center;
+    word-wrap: break-word;
+  }
+  
+  
+  .breathing-container p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .breathing-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .breathing-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+  
+  .box-visual {
+    margin-top: 2rem;
+  }
+  
+  .box {
+    width: 100px;
+    height: 100px;
+    border: 2px solid #007bff;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden; /* Ensures pointer stays within the box */
+  }
+  
+  .pointer {
+    width: 10px;
+    height: 10px;
+    background-color: #007bff;
+    border-radius: 50%;
+    position: absolute;
+    transition: transform 4s linear; /* Smooth pointer movement */
+  }
+  
+  .position-0 {
+    transform: translate(0, 0);
+  }
+  
+  .position-1 {
+    transform: translate(90px, 0); /* Move to top-right */
+  }
+  
+  .position-2 {
+    transform: translate(90px, 90px); /* Move to bottom-right */
+  }
+  
+  .position-3 {
+    transform: translate(0, 90px); /* Move to bottom-left */
+  }
+  
+  /* Audio visualizer canvas */
+  .audio-visualizer {
+    width: 30%;
+    height: 100px;
+    border-radius: 10px;
+    background-color: rgba(153, 219, 241, 0.548);
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  
+  .audio-button {
+    background-color: #28a745; /* Green background */
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 15px; /* Adjust spacing */
+  }
+  
+  .audio-button:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: scale(1.05); /* Slight zoom effect on hover */
+  }
+  
+  
+  
+  
+  
+  
+  .bubble-text {
+    background: linear-gradient(135deg, lightsteelblue, rgb(66, 144, 246));
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px auto;
+    max-width: 600px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    
+    /* Animation only for bubble-text */
+    animation: flow 6s ease-in-out infinite, float 3s ease-in-out infinite;
+    transition: box-shadow 0.4s ease, transform 0.4s ease; /* Smooth transition for both shadow and movement */
+    
+  }
+  
+  /* Hover effect for bubble text */
+  .bubble-text:hover {
+    transform: translate(10px, -10px);
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.842); /* Larger shadow on hover */
+  }
+  
+  /* Keyframes for floating/oscillating effect */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-10px) rotate(1deg);
+    }
+  }
+  
+  /* Optional flow effect for background */
+  @keyframes flow {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }

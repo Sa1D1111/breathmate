@@ -4,7 +4,8 @@ export const breathworkTechniques = [
     { name: 'Box Breathing', description: 'A simple 4-4-4-4 breathing technique that helps reduce stress and improve focus.' },
     { name: 'Diaphragmatic Breathing', description: 'Deep belly breathing that relaxes the body and increases lung capacity.' },
     { name: 'Pursed Lip Breathing', description: 'Helps control breathing, improves lung function, and reduces shortness of breath.' },
-    { name: '4-7-8 Breathing', description: 'A calming technique for anxiety and insomnia, using a rhythmic breath pattern.' }
+    { name: '4-7-8 Breathing', description: 'A calming technique for anxiety and insomnia, using a rhythmic breath pattern.' },
+    { name: 'Deep Nostril Breathing', description: 'A nostril breathing technique for stress and relaxation.' }
   ];
   
   // Function to get techniques
