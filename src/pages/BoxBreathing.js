@@ -181,13 +181,44 @@ const BoxBreathing = () => {
         <button className="audio-button" onClick={handleMusicPlayPause}>
           {isPlaying ? 'Pause Music' : 'Play Music'}
         </button>
-
-
-        
       </div>
 
+
+
+{/* Informational Content */}
+<div className="info-content">
+        <h2>How Box Breathing Works</h2>
+        <h3>Set up for Box Breathing</h3>
+        <p>
+          Find a comfortable seated position with your back straight. Place your
+          feet flat on the floor and rest your hands on your lap. Take a deep
+          breath in and slowly exhale before starting the exercise.
+        </p>
+        <p>
+          Box breathing helps calm the mind, reduce stress, and improve
+          focus by balancing your nervous system. This practice involves
+          inhaling, holding, exhaling, and holding again in equal counts.
+        </p>
+      </div>
+
+      
+
+
+ {/* Add YouTube video embed here */}
+ <div className="video-container">
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/tEmt1Znux58"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      </div>
+
+
       {/* Audio Visualizer */}
-      <canvas ref={canvasRef} className="audio-visualizer" width="600" height="150"></canvas>
+      {/* <canvas ref={canvasRef} className="audio-visualizer" width="600" height="150"></canvas> */}
     </div>
   );
 };

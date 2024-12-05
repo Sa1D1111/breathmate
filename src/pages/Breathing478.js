@@ -5,23 +5,23 @@ const Breathing478 = () => {
   const [phase, setPhase] = useState('Inhale');
   const [timeLeft, setTimeLeft] = useState(4);
   const [isRunning, setIsRunning] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false); // For music play/pause
-  const [audioInitialized, setAudioInitialized] = useState(false); // Track if audio is initialized
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [audioInitialized, setAudioInitialized] = useState(false);
 
-  const audioRef = useRef(null); // Ref for audio element
-  const canvasRef = useRef(null); // Ref for canvas element
-  const audioContextRef = useRef(null); // Ref for the AudioContext
-  const analyserRef = useRef(null); // Ref for the AnalyserNode
-  const dataArrayRef = useRef(null); // Ref for the frequency data
-  const animationFrameRef = useRef(null); // Ref for animation frame
+  const audioRef = useRef(null);
+  const canvasRef = useRef(null);
+  const audioContextRef = useRef(null);
+  const analyserRef = useRef(null);
+  const dataArrayRef = useRef(null);
+  const animationFrameRef = useRef(null);
 
   const phases = [
-    { name: 'Inhale', duration: 4 },   // Inhale for 4 seconds
-    { name: 'Hold Inhale', duration: 7 },   // Hold for 7 seconds
-    { name: 'Exhale', duration: 8 }    // Exhale for 8 seconds
+    { name: 'Inhale', duration: 4 },
+    { name: 'Hold Inhale', duration: 7 },
+    { name: 'Exhale', duration: 8 }
   ];
 
-  const [pointerPosition, setPointerPosition] = useState(0); // Start at the first phase
+  const [pointerPosition, setPointerPosition] = useState(0);
 
   useEffect(() => {
     if (isRunning) {
@@ -33,7 +33,7 @@ const Breathing478 = () => {
             const currentPhaseIndex = phases.findIndex((p) => p.name === phase);
             const nextPhase = phases[(currentPhaseIndex + 1) % phases.length];
             setPhase(nextPhase.name);
-            setPointerPosition((currentPhaseIndex + 1) % phases.length); // Update pointer position
+            setPointerPosition((currentPhaseIndex + 1) % phases.length);
             return nextPhase.duration;
           }
         });
@@ -41,12 +41,11 @@ const Breathing478 = () => {
 
       return () => clearInterval(interval);
     }
-  }, [isRunning, phase, phases]);
+  }, [isRunning, phase]);
 
   const handleStartStop = () => {
     setIsRunning(!isRunning);
     if (!isRunning) {
-      // Immediately update the pointer position on start
       const currentPhaseIndex = phases.findIndex((p) => p.name === phase);
       setPointerPosition(currentPhaseIndex % phases.length);
     }
@@ -56,26 +55,25 @@ const Breathing478 = () => {
     try {
       if (audioRef.current) {
         if (isPlaying) {
-          // Pause both audio and audio context
           audioRef.current.pause();
           if (audioContextRef.current) {
-            await audioContextRef.current.suspend();
+            audioContextRef.current.suspend();
           }
           setIsPlaying(false);
         } else {
-          // Play the audio and initialize visualizer if needed
           await audioRef.current.play();
+          setIsPlaying(true);
+
           if (!audioInitialized) {
             initializeAudioVisualizer();
             setAudioInitialized(true);
           } else if (audioContextRef.current && audioContextRef.current.state === 'suspended') {
-            await audioContextRef.current.resume();
+            audioContextRef.current.resume();
           }
-          setIsPlaying(true);
         }
       }
     } catch (error) {
-      console.error('Error toggling audio playback:', error);
+      console.error("Error toggling audio playback:", error);
     }
   };
 
@@ -106,6 +104,11 @@ const Breathing478 = () => {
     const analyser = analyserRef.current;
     const dataArray = dataArrayRef.current;
 
+    if (!canvas || !canvasCtx || !analyser || !dataArray) {
+      console.error("Canvas or analyser is not properly initialized.");
+      return;
+    }
+
     const WIDTH = canvas.width;
     const HEIGHT = canvas.height;
 
@@ -123,9 +126,9 @@ const Breathing478 = () => {
       let x = 0;
 
       for (let i = 0; i < dataArray.length; i++) {
-        barHeight = dataArray[i] / 2;
+        barHeight = dataArray[i];
         canvasCtx.fillStyle = `rgb(${barHeight + 100}, 50, 150)`;
-        canvasCtx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
+        canvasCtx.fillRect(x, HEIGHT - barHeight / 2, barWidth, barHeight / 2);
         x += barWidth + 1;
       }
 
@@ -133,6 +136,17 @@ const Breathing478 = () => {
     };
 
     draw();
+  };
+
+  // Calculate circle size based on breathing phase and time left
+  const circleSize = () => {
+    if (phase === 'Inhale' || phase === 'Exhale') {
+      const maxDiameter = 200; // Maximum circle size
+      const minDiameter = 100; // Minimum circle size
+      const progress = (timeLeft / phases.find((p) => p.name === phase).duration) || 0;
+      return maxDiameter - (progress * (maxDiameter - minDiameter));
+    }
+    return 100; // Default size for Hold phases
   };
 
   return (
@@ -147,14 +161,20 @@ const Breathing478 = () => {
       </div>
 
       <div className="visual">
-        <div className="visual-circle">
+        <div
+          className="visual-circle"
+          style={{
+            width: `${circleSize()}px`,
+            height: `${circleSize()}px`
+          }}
+        >
           <span>{phase}</span>
         </div>
       </div>
 
       <div className="audio-controls">
         <audio ref={audioRef} loop>
-          <source src="/audio/serene-music.mp3" type="audio/mp3" />
+          <source src="/audio/music2.mp3" type="audio/mp3" />
           Your browser does not support the audio element.
         </audio>
         <button className="audio-button" onClick={handleMusicPlayPause}>
@@ -162,8 +182,54 @@ const Breathing478 = () => {
         </button>
       </div>
 
-      <canvas ref={canvasRef} className="audio-visualizer" width="600" height="150"></canvas>
+
+
+
+
+
+{/* Informational Content */}
+<div className="info-content">
+        <h2>How 4-7-8 Breathing Works</h2>
+        <h3>Set up for 4-7-8 Breathing</h3>
+        <p>
+        To practice 4-7-8 breathing, find a comfortable place to sit or lie down. Be sure to practice good posture, especially when starting out. Lying down is best if you’re using the technique to fall asleep.
+Prepare for the practice by resting the tip of your tongue against the roof of your mouth, right behind your top front teeth. You’ll need to keep your tongue in place throughout the exercise.
+<p>It takes practice to keep from moving your tongue when you exhale. Exhaling during 4-7-8 breathing can be easier for some people when they purse their lips.
+The following steps should all be carried out in the cycle of one breath:</p>
+
+
+        </p>
+        <p>
+        First, let your lips part. Make a whooshing sound, exhaling completely through your mouth.
+Next, close your lips, inhaling silently through your nose as you count to 4 seconds in your head.
+Then, for 7 seconds, hold your breath.
+Make another whooshing exhale from your mouth for 8 seconds.
+        </p>
+      </div>
+
+      
+
+
+ {/* Add YouTube video embed here */}
+ <div className="video-container">
+  <iframe
+    width="560"
+    height="315"
+    src="https://www.youtube.com/embed/Uxbdx-SeOOo"
+    title="4-7-8 Breathing Technique"
+    frameBorder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowFullScreen
+  ></iframe>
+</div>
+
+
+
     </div>
+
+
+
+
   );
 };
 

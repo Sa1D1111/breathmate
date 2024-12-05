@@ -57,15 +57,18 @@
 }
 
 .visual-circle {
-  width: 120px;
-  height: 120px;
-  border: 5px solid #ff7f50;
   border-radius: 50%;
-  position: relative;
+  border: 5px solid #ff7f50;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  color: #ff7f50;
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: width 1s linear, height 1s linear; /* Smooth resizing */
 }
+
 
 .visual-circle span {
   font-size: 1.5rem;
@@ -98,4 +101,21 @@
 .audio-button:hover {
   background-color: #198754; /* Darker green */
   transform: scale(1.05);
+}
+
+
+
+
+/* video container */
+
+.video-container {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-container iframe {
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
