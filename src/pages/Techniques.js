@@ -16,7 +16,7 @@ const Techniques = () => {
             <FontAwesomeIcon icon={faCircleNotch} className="technique-icon" />
             <div className="technique-content">
               <h3>Deep Breathing</h3>
-              <p>Deep nostril breathing to relax.</p>
+              <p>Deep nostril breathing to relax</p>
             </div>
           </Link>
         </li>
@@ -27,7 +27,7 @@ const Techniques = () => {
     <FontAwesomeIcon icon={faSquare} className="technique-icon" />
     <div className="technique-content">
       <h3>Box Breathing</h3>
-      <p>4-4-4-4 breathing for focus.</p>
+      <p>4-4-4-4 breathing for focus</p>
     </div>
   </Link>
 </li>
@@ -37,17 +37,19 @@ const Techniques = () => {
           <FontAwesomeIcon icon={faCircle} className="technique-icon" />
           <div className="technique-content">
             <h3>4-7-8 Breathing</h3>
-            <p>A calming breathing technique.</p>
+            <p>A calming breathing technique</p>
           </div>
           </Link>
         </li>
         
         <li>
-          <FontAwesomeIcon icon={faLeaf} className="technique-icon" />
-          <div className="technique-content">
-            <h3>Diaphragmatic Breathing</h3>
-            <p>Deep belly breathing to relax.</p>
-          </div>
+          <Link to="/alternate-nostril" className="technique-link">
+            <FontAwesomeIcon icon={faLeaf} className="technique-icon" />
+            <div className="technique-content">
+              <h3>Alternate Nostril Breathing</h3>
+              <p>Purposeful nostril breathing</p>
+            </div>
+          </Link>
         </li>
         
         

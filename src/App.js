@@ -7,6 +7,8 @@ import CustomBreathing from './pages/CustomBreathing';
 import WaterBreath from './pages/WaterBreath'; // Import the new page
 import BoxBreathing from './pages/BoxBreathing'; // Import Box Breathing
 import Breathing478 from './pages/Breathing478'; // Import Box Breathing
+import AlternateNostril from './pages/AlternateNostril'; // Adjust the path based on your file structure
+
 
 
 function App() {
@@ -22,6 +24,9 @@ function App() {
             <Route path="/water-breathing" element={<WaterBreath />} /> {/* New route */}
             <Route path="/box-breathing" element={<BoxBreathing />} /> {/* New route */}
             <Route path="/478-breathing" element={<Breathing478 />} /> {/* New route */}
+            <Route path="/alternate-nostril" element={<AlternateNostril />} /> {/* New route */}
+
+
 
 
           </Routes>

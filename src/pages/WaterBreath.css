@@ -3,6 +3,11 @@
     padding-top: 60px; /* Adjust this based on the height of the navbar */
   }
   
+  h1, h2, h3, h4, h5, h6, button {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  
   .states {
     align-items: stretch;
     background-color: #ffffff;

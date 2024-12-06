@@ -117,3 +117,19 @@
     background-position: 0% 50%;
   }
 }
+
+
+.pointer {
+  width: 10px;
+  height: 10px;
+  background-color: blue;
+  border-radius: 50%;
+  position: absolute;
+}
+.pointer-container {
+  width: 300px;
+  height: 300px;
+  position: relative;
+}
+
+

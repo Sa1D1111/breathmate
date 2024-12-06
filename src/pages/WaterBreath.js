@@ -102,7 +102,7 @@ const WaterBreath = () => {
 {/* Informational Content */}
 <div className="info-content">
         <h2>Diaphragmatic breathing</h2>
-        <p>: Also known as deep breathing, the diaphragm muscle must contract in this type of respiration. As the muscle contracts, breath passively leaves the lung</p>
+        <p>Also known as deep breathing, the diaphragm muscle must contract in this type of respiration. As the muscle contracts, breath passively leaves the lung</p>
 
         <p>
         Diaphragmatic or deep breathing, on the other hand, stimulates the parasympathetic nervous system, which is part of the peripheral nervous system responsible for regulating heartbeat, blood flow, breathing, and digestion.
