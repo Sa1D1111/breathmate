@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faWind, faChartLine, faCog, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faWind, faChartLine, faCog, faQuestionCircle, faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
+import { ThemeContext } from './Context/ThemeContext';
 import './TopNavbar.css';
 
 const TopNavbar = () => {
-  const navigate = useNavigate(); // Get navigate function from react-router-dom
+  const navigate = useNavigate();
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
-  // Handle "Get Started" button click
   const handleGetStarted = () => {
-    navigate('/custom-breathing'); // Navigate to the CustomBreathing page
+    navigate('/custom-breathing');
   };
 
   return (
@@ -43,6 +44,19 @@ const TopNavbar = () => {
             </Link>
           </li>
         </ul>
+
+        {/* Theme Toggle Button */}
+        <button className="theme-toggle-btn" onClick={toggleTheme}>
+          {theme === 'light' ? (
+            <>
+              <FontAwesomeIcon icon={faMoon} /> Dark Mode
+            </>
+          ) : (
+            <>
+              <FontAwesomeIcon icon={faSun} /> Light Mode
+            </>
+          )}
+        </button>
 
         {/* "Get Started" button */}
         <button className="get-started-btn" onClick={handleGetStarted}>

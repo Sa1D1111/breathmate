@@ -1,0 +1,114 @@
+/* Global body styles */
+body {
+    margin: 0;
+    padding: 0;
+    overflow: auto; /* Allow scrolling globally */
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #d5efff, #b8e2fa); /* Fallback background */
+  }
+  
+  /* Help page styles */
+  .help-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    min-height: 100vh; /* Ensure the page stretches to at least full height */
+    overflow-y: auto; /* Enables scrolling for the help page content */
+    background: linear-gradient(to bottom, #d5efff, #b8e2fa); /* Soft gradient background */
+    color: #333;
+  }
+  
+  .help-header {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #0066ff;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .help-section {
+    width: 80%;
+    max-width: 800px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .help-section h2 {
+    font-size: 1.5rem;
+    color: #0066ff;
+    margin-bottom: 10px;
+  }
+  
+  .help-section p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0 0 10px 0;
+  }
+  
+  .help-faq {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .help-faq li {
+    margin: 10px 0;
+  }
+  
+  .help-faq-question {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .help-faq-answer {
+    margin-top: 5px;
+    font-style: italic;
+    color: #555;
+  }
+  
+  .help-contact {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .help-contact a {
+    color: #0066ff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .help-contact a:hover {
+    text-decoration: underline;
+  }
+  
+  .disclaimer {
+    font-size: 0.9rem;
+    margin-top: 20px;
+    color: #777;
+    text-align: center;
+  }
+  
+  /* Adjustments for smaller screens */
+  @media (max-width: 768px) {
+    .help-section {
+      width: 95%; /* Adjust width for smaller screens */
+      padding: 10px;
+    }
+  
+    .help-header {
+      font-size: 1.8rem; /* Reduce header size */
+    }
+  
+    .help-section h2 {
+      font-size: 1.3rem; /* Adjust section header size */
+    }
+  
+    .help-section p {
+      font-size: 0.95rem; /* Adjust text size */
+    }
+  }
+  
