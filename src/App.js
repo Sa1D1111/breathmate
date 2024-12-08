@@ -9,6 +9,8 @@ import BoxBreathing from './pages/BoxBreathing'; // Import Box Breathing
 import Breathing478 from './pages/Breathing478'; // Import Box Breathing
 import AlternateNostril from './pages/AlternateNostril'; // Adjust the path based on your file structure
 import Help from './pages/Help'; // Adjust the path based on your file structure
+import ProgressTracker from './pages/ProgressTracker';
+
 
 
 function App() {
@@ -27,6 +29,7 @@ function App() {
             <Route path="/alternate-nostril" element={<AlternateNostril />} /> {/* New route */}
             <Route path="/help" element={<Help />} /> {/* New route */}
 
+            <Route path="/progress" element={<ProgressTracker />} />
 
 
 
