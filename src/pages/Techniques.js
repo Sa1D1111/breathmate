@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const Techniques = () => {
   return (
     <div className="techniques-page">
-      <h1>Breathwork Techniques</h1>
+      <h1 className ="bubble-text">Breathwork Techniques</h1>
       <div className="techniques-container">
         {/* Left Section: Technique List */}
         <div className="technique-list-container">

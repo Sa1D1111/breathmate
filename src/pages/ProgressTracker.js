@@ -12,7 +12,6 @@ const ProgressTracker = () => {
             "Box Breathing": 0,
             "4-7-8 Breathing": 0,
             "Alternate Nostril Breathing": 0,
-            "Custom Breathing": 0, // Add custom breathing as a technique
           },
           dailyGoal: 5,
           completedSessionsToday: 0,
@@ -70,19 +69,34 @@ const ProgressTracker = () => {
       <div className="techniques-progress">
         <h2>Techniques Progress</h2>
         <div className="techniques-grid">
-          {Object.keys(progress.techniques).map((technique) => (
-            <div key={technique} className="technique-progress-item">
-              <h3>{technique}</h3>
-              <p>Sessions Completed: {progress.techniques[technique]}</p>
-              <button
-                onClick={() => handleSessionComplete(technique)}
-                className="complete-session-btn"
-              >
-                Complete Session
-              </button>
-            </div>
-          ))}
+          {Object.keys(progress.techniques).map(
+            (technique) =>
+              technique !== "Custom Breathing" && (
+                <div key={technique} className="technique-progress-item">
+                  <h3>{technique}</h3>
+                  <p>Sessions Completed: {progress.techniques[technique]}</p>
+                  <button
+                    onClick={() => handleSessionComplete(technique)}
+                    className="complete-session-btn"
+                  >
+                    Complete Session
+                  </button>
+                </div>
+              )
+          )}
         </div>
+      </div>
+
+      {/* Custom Breathing Section */}
+      <div className="custom-breathing-section">
+        <h2>Custom Breathing</h2>
+        <p>Sessions Completed: {progress.techniques["Custom Breathing"]}</p>
+        <button
+          onClick={() => handleSessionComplete("Custom Breathing")}
+          className="complete-session-btn"
+        >
+          Complete Session
+        </button>
       </div>
     </div>
   );

@@ -67,20 +67,23 @@ const AlternateNostril = () => {
         <button onClick={handleStartStop} className="control-button">
           {isRunning ? 'Pause' : 'Start'}
         </button>
-        <button onClick={handleMusicPlayPause} className="control-button">
+
+        {/* Audio Player */}
+        <audio ref={audioRef} loop>
+          <source src="/audio/music2.mp3" type="audio/mp3" />
+          Your browser does not support the audio element.
+        </audio>
+        <button className="audio-button" onClick={handleMusicPlayPause}>
           {isPlaying ? 'Pause Music' : 'Play Music'}
         </button>
       </div>
-      <audio ref={audioRef} loop>
-        <source src="/audio/music3.mp3" type="audio/mp3" />
-        Your browser does not support the audio element.
-      </audio>
 
-      <h2>How to do
-      </h2>
+      <h2>How to do</h2>
       <p>
-      Also know as <b>Nadi Shodhana,</b> sit comfortably, bring your <b>Right</b> hand to your nose, use your thumb to block your right nostril, inhale through your <b>Left </b> nostril, then close your <b>Left </b> nostril with your index finger, exhale through your <b>Right</b> nostril, then switch sides by inhaling through your <b>Right</b> nostril and exhaling through your <b>Left </b>, repeating the cycle by alternating between nostrils for several rounds
-
+        Also know as <b>Nadi Shodhana,</b> sit comfortably, bring your <b>Right</b> hand to your nose, use your thumb to block your right nostril,
+        inhale through your <b>Left </b> nostril, then close your <b>Left </b> nostril with your index finger, exhale through your <b>Right</b> nostril,
+        then switch sides by inhaling through your <b>Right</b> nostril and exhaling through your <b>Left </b>, repeating the cycle by alternating
+        between nostrils for several rounds
       </p>
 
       {/* Spotify Embed */}
@@ -95,24 +98,17 @@ const AlternateNostril = () => {
         ></iframe>
       </div>
 
-
-      <h2>What is Alternate Nostril Breathing (ANB)?
-      </h2>
+      <h2>What is Alternate Nostril Breathing (ANB)?</h2>
       <p>
-      Alternate nostril breathing is an original a yogic breath control practice. Most yoga breathing techniques involve regulating the breath frequency, rhythm, phase duration, as well as the nostril through which a practitioner breathes. Primarily this is about conscious control of the breath with enhanced focus on breath awareness and precision. In general, this awareness technique is called pranayama (prana = life and yama = force).
-
-The technique of breathing alternately through the left and right nostril is known in Sanskrit as nadi shodhana pranayama, which translates to “subtle energy clearing breathing technique.” This audio will teach you how to perform alternate nostril breathing with step-by-step guided direction.
+        Alternate nostril breathing is an original a yogic breath control practice. Most yoga breathing techniques involve regulating the breath
+        frequency, rhythm, phase duration, as well as the nostril through which a practitioner breathes. Primarily this is about conscious
+        control of the breath with enhanced focus on breath awareness and precision. In general, this awareness technique is called pranayama
+        (prana = life and yama = force).
       </p>
 
-
-
       <header className="intro-section">
-
-         <img src={require('../images/AlternateNostril.png')} alt="Breathwork" className="hero-image" />
-
-       </header>
-
-
+        <img src={require('../images/AlternateNostril.png')} alt="Breathwork" className="hero-image" />
+      </header>
     </div>
   );
 };
