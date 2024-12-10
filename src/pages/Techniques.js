@@ -54,7 +54,7 @@ const Techniques = () => {
 
         {/* Right Section: Video and Customized Section */}
         <div className="technique-video-container">
-          <h2>Watch the Breathing Techniques</h2>
+          <h2>Watch The Power of Breathwork</h2>
           <iframe
             className="technique-video"
             src="https://www.youtube.com/embed/TklaIRSSQ9s"

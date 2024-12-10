@@ -14,12 +14,24 @@ import { fetchBreathworkTechniques } from '../controllers/breathworkController';
   useEffect(() => {
     const techniquesData = fetchBreathworkTechniques();  // Use fetchBreathworkTechniques
     setTechniques(techniquesData);  // Set the fetched data in state
+
+    const container = document.querySelector('.airdrops-container');
+    for (let i = 0; i < 50; i++) {
+      const drop = document.createElement('div');
+      drop.className = 'airdrop';
+      drop.style.left = `${Math.random() * 100}vw`; // Random horizontal position
+      drop.style.animationDelay = `${Math.random() * 5}s`; // Random delay for staggered fall
+      container.appendChild(drop);
+    }
+
   }, []);
 
 
 
    return (
     <div>
+            <div className="airdrops-container"></div> {/* Airdrops container */}
+
      <div className="home-container">
        <header className="intro-section">
          <h1>Welcome to BreathMate</h1>

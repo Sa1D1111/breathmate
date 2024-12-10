@@ -1,18 +1,11 @@
-/* General body styles */
 body {
-  background: linear-gradient(135deg, #FFDEE9, #B5FFFC); /* Gradient similar to your example */
+  background: linear-gradient(135deg, #FFDEE9, #B5FFFC); /* Gradient background */
   color: #333;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
-
+  overflow-x: hidden; /* Prevent horizontal scroll caused by animations */
 }
-
-h1, h2, h3, h4, h5, h6, button p {
-  font-family: 'Poppins', sans-serif;
-}
-
 
 /* Home container styles */
 .home-container {
@@ -20,10 +13,18 @@ h1, h2, h3, h4, h5, h6, button p {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.5); /* Semi-transparent to blend with the background */
+  background: rgba(255, 255, 255, 0.7);
   border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for the container */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
 }
+
+
+h1, h2, h3, h4, h5, h6, button p {
+  font-family: 'Poppins', sans-serif;
+}
+
 
 .intro-section {
   text-align: center;
@@ -199,4 +200,59 @@ h1, h2, h3, h4, h5, h6, button p {
   100% {
     background-position: 0% 50%;
   }
+}
+
+
+
+
+
+/* Falling airdrops container */
+.airdrops-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Behind the content */
+  pointer-events: none; /* Ensure it doesn't interfere with user interaction */
+  overflow: hidden;
+}
+
+/* Airdrop styles */
+.airdrop {
+  position: absolute;
+  top: -50px; /* Start above the viewport */
+  width: 15px;
+  height: 15px;
+  background: rgba(127, 175, 237, 0.8); /* Blue drop color */
+  border-radius: 50%; /* Makes it round */
+  box-shadow: 0 4px 8px rgba(66, 144, 246, 0.5); /* Glow effect */
+  animation: fall 4s linear infinite; /* Falling animation */
+}
+
+/* Falling animation */
+@keyframes fall {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) translateX(50px); /* Moves down and slightly to the side */
+    opacity: 0;
+  }
+}
+
+/* Variations for different drops */
+.airdrop:nth-child(odd) {
+  animation-duration: 8s;
+  background: rgba(66, 144, 246, 0.6);
+  width: 10px;
+  height: 10px;
+}
+
+.airdrop:nth-child(even) {
+  animation-duration: 8s;
+  background: rgba(66, 144, 246, 0.76);
+  width: 20px;
+  height: 20px;
 }
