@@ -18,6 +18,8 @@ const ProgressTracker = () => {
         };
   });
 
+  const [newDailyGoal, setNewDailyGoal] = useState(progress.dailyGoal);
+
   useEffect(() => {
     localStorage.setItem("breathingProgress", JSON.stringify(progress));
   }, [progress]);
@@ -37,6 +39,13 @@ const ProgressTracker = () => {
     setProgress((prevProgress) => ({
       ...prevProgress,
       completedSessionsToday: 0,
+    }));
+  };
+
+  const handleDailyGoalChange = () => {
+    setProgress((prevProgress) => ({
+      ...prevProgress,
+      dailyGoal: newDailyGoal,
     }));
   };
 
@@ -64,6 +73,23 @@ const ProgressTracker = () => {
         <button className="reset-daily-goal-btn" onClick={handleResetDailyGoal}>
           Reset Daily Goal
         </button>
+
+        <div className="daily-goal-setter">
+          <label htmlFor="daily-goal-input">Set Daily Goal:</label>
+          <input
+            id="daily-goal-input"
+            type="number"
+            min="1"
+            value={newDailyGoal}
+            onChange={(e) => setNewDailyGoal(Number(e.target.value))}
+          />
+          <button
+            className="set-daily-goal-btn"
+            onClick={handleDailyGoalChange}
+          >
+            Update Goal
+          </button>
+        </div>
       </div>
 
       <div className="techniques-progress">

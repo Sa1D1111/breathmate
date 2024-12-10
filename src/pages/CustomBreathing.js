@@ -87,7 +87,8 @@ const CustomBreathing = () => {
         ctx.arc(drop.x, drop.y, drop.radius, 0, Math.PI * 2, false);
         ctx.fillStyle = `rgba(173, 216, 230, ${drop.opacity})`;
         ctx.fill();
-        drop.y += drop.speed;
+        const globalSeedModifier = 0.25;
+        drop.y += drop.speed * globalSeedModifier;
         if (drop.y > canvas.height) {
           drops[index] = createDrop(); // Reset drop to top
         }

@@ -174,7 +174,7 @@ const Breathing478 = () => {
 
       <div className="audio-controls">
         <audio ref={audioRef} loop>
-          <source src="/audio/music2.mp3" type="audio/mp3" />
+          <source src="/audio/music3.mp3" type="audio/mp3" />
           Your browser does not support the audio element.
         </audio>
         <button className="audio-button" onClick={handleMusicPlayPause}>

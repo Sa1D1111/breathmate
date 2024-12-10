@@ -147,3 +147,31 @@ p {
 .custom-breathing-section .complete-session-btn:hover {
     background-color: #0056b3;
 }
+
+
+.daily-goal-setter {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  #daily-goal-input {
+    width: 60px;
+    padding: 5px;
+    text-align: center;
+  }
+  
+  .set-daily-goal-btn {
+    padding: 5px 10px;
+    background-color: #1e88e5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .set-daily-goal-btn:hover {
+    background-color: #1565c0;
+  }
+  
